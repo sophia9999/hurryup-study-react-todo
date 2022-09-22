@@ -5,10 +5,14 @@ import Sample from "./Sample";
 
 function Event() {
   const [text, setText] = useState("");
+  const [selectbox, setSelectbox] = useState(0);
+  const [selectbox2, setSelectbox2] = useState(0);
 
-  const handleChange = (e) => {
-    console.log(`text:${text}`, e.target.value);
+  const handleChange = (e, item1, item2) => {
+    console.log(`text!!`);
     setText(e.target.value);
+    setSelectbox(item1);
+    setSelectbox2(item2);
   };
 
   const handleChange2 = (e) => {
@@ -30,14 +34,16 @@ function Event() {
     }
   };
 
+  let itemValue = "1";
+
   return (
     <>
       <div>
         <input
           type="text"
           value={text}
-          onChange={(e) => handleChange(e)}
-          onKeyUp={(e) => handleKeyUp(e)}
+          onChange={(e) => handleChange(e, 1, 1)}
+          onKeyUp={handleKeyUp}
         />
       </div>
       <div>
